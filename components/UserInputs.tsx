@@ -4,6 +4,7 @@ export const UserInputs: FC<userInputsProps> = ({
 	handleSubmit,
 	userInputs,
 	setUserInputs,
+	isLoading,
 }) => {
 	return (
 		<form
@@ -46,7 +47,9 @@ export const UserInputs: FC<userInputsProps> = ({
 					})
 				}
 			/>
-			<button className="btn flex-1">Generate</button>
+			<button className="btn flex-1">
+				{isLoading ? "Genearting..." : "Generate"}
+			</button>
 		</form>
 	);
 };

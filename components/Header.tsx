@@ -7,14 +7,12 @@ export const Header = () => {
 			<div className="flex justify-between items-center">
 				{/* logo */}
 				<div className="flex items-center space-x-2">
-					<div className="relative h-16 w-16">
-						<Image
-							src={logo}
-							alt="logo"
-							fill
-							className="object-contain rounded-full"
-						/>
-					</div>
+					<Image
+						src={logo}
+						alt="logo"
+						className="object-contain rounded-full h-16 w-16"
+					/>
+
 					<h1 className="font-bold text-2xl">DALL-E</h1>
 				</div>
 				{/* Tag Line */}

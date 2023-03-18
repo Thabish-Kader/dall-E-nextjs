@@ -2,6 +2,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { UserInputs } from "./UserInputs";
+import { ImagePreview } from "./ImagePreview";
 
 export const InputPanel = () => {
 	const [userInputs, setUserInputs] = useState<TUserInput>({
@@ -9,10 +10,8 @@ export const InputPanel = () => {
 		hashTag: "",
 		description: "",
 	});
+	const [imageUrl, setImageUrl] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
-	// const [title, setTitle] = useState("");
-	// const [hashTag, setHashTag] = useState("");
-	// const [description, setDescription] = useState("");
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -35,6 +34,7 @@ export const InputPanel = () => {
 					headers: { "Content-Type": "application/json" },
 				}
 			);
+			setImageUrl(data);
 		} catch (error) {
 			let message = "Unkown error";
 			if (error instanceof Error) message = error.message;
@@ -42,45 +42,23 @@ export const InputPanel = () => {
 		} finally {
 			setIsLoading(false);
 		}
+		setUserInputs({
+			title: "",
+			hashTag: "",
+			description: "",
+		});
 	};
 
 	return (
 		<div className="mt-40 ">
-			{/* <form
-				onSubmit={handleSubmit}
-				className="bg-openAI_Primary p-6 flex flex-col space-y-3 rounded-lg"
-			>
-				<div className="flex items-center space-x-3">
-					<input
-						type="text"
-						className="input"
-						placeholder="Enter tilte...."
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-					/>
-					<input
-						type="text"
-						className="input"
-						placeholder="#AI #OPENAI "
-						value={hashTag}
-						onChange={(e) => setHashTag(e.target.value)}
-					/>
-				</div>
-
-				<input
-					type="text"
-					className="input"
-					placeholder="Describe what image you want"
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-				/>
-				<button className="btn flex-1">Generate</button>
-			</form> */}
 			<UserInputs
 				handleSubmit={handleSubmit}
 				userInputs={userInputs}
 				setUserInputs={setUserInputs}
+				isLoading={isLoading}
 			/>
+
+			<ImagePreview imageUrl={imageUrl} isLoading={isLoading} />
 		</div>
 	);
 };
