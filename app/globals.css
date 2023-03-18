@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.btn {
+		@apply px-2 py-1 text-lg hover:bg-openAI_Hover rounded-lg  border-[0.5px] border-white transition-colors duration-300 text-white;
+	}
+	.input {
+		@apply flex-1 px-2 py-1 rounded-lg bg-openAI_Secondary outline-none text-white;
+	}
+}

@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 import "./globals.css";
 
 export const metadata = {
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-openAI_Secondary">{children}</body>
+			<body className="bg-openAI_Secondary ">
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }

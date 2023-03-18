@@ -10,7 +10,6 @@ module.exports = {
 			colors: {
 				openAI_Primary: "#202123",
 				openAI_Secondary: "#343541",
-				openAI_Text: "#ececf1",
 				openAI_Hover: "#2A2B32",
 			},
 		},

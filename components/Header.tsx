@@ -3,7 +3,7 @@ import logo from "../public/assets/logo.png";
 
 export const Header = () => {
 	return (
-		<header className="bg-openAI_Primary p-8 text-openAI_Text">
+		<header className="absolute top-0 w-full bg-openAI_Primary p-8 text-white">
 			<div className="flex justify-between items-center">
 				{/* logo */}
 				<div className="flex items-center space-x-2">
@@ -23,9 +23,7 @@ export const Header = () => {
 				</h1>
 
 				{/* button */}
-				<button className="p-2 text-xl hover:bg-openAI_Hover rounded-lg border border-1 border-white transition-colors duration-300">
-					Sign Up
-				</button>
+				<button className="btn">Sign Up</button>
 			</div>
 		</header>
 	);
