@@ -1,10 +1,15 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import { Header } from "@/components/Header";
 
 export default function Home() {
 	return (
 		<main>
-			<h1 className="text-red-500 text-2xl">hello</h1>
+			{/* Header */}
+			<Header />
+			{/* inputs */}
+
+			{/* Image preview */}
 		</main>
 	);
 }
