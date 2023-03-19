@@ -6,6 +6,7 @@ async function getPosts() {
 	// if (!res.ok) {
 	// 	throw new Error("Failed to fetch data");
 	// }
+	// const posts = res.json();
 	const posts = await prisma.post.findMany();
 
 	return posts;

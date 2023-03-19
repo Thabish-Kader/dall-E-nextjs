@@ -4,13 +4,7 @@ import Image from "next/image";
 import React, { FC } from "react";
 import { Button } from "./Button";
 
-const CommunityPost: FC<Post> = ({
-	title,
-	author,
-	authorImage,
-	imageUrl,
-	tag,
-}) => {
+const CommunityPost: FC<Post> = ({ title, imageUrl, tag }) => {
 	return (
 		<article className="bg-openAI_Primary flex flex-col p-5 rounded-lg text-white">
 			<div className="relative h-[512px] w-auto rounded-lg">
@@ -25,17 +19,7 @@ const CommunityPost: FC<Post> = ({
 				{title}
 			</h1>
 			{/* user profile/name */}
-			<div className="flex items-center space-x-3">
-				<div className="relative h-12 w-12 ">
-					<Image
-						src={authorImage}
-						alt={title}
-						fill
-						className="object-cover rounded-full"
-					/>
-				</div>
-				<p>{author}</p>
-			</div>
+
 			<p className="text-yellow-500 mt-2">{tag}</p>
 			<Button imageUrl={imageUrl} />
 		</article>

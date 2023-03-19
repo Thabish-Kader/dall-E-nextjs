@@ -11,10 +11,9 @@ datasource db {
 }
 
 model Post {
-  id          Int    @id @default(autoincrement())
-  author      String
-  authorImage String
-  title       String
-  imageUrl    String
-  tag         String
+  id        Int      @id @default(autoincrement())
+  title     String
+  imageUrl  String
+  tag       String
+  createdAt DateTime @updatedAt
 }

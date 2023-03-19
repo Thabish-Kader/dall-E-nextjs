@@ -36,8 +36,6 @@ export const InputPanel = () => {
 			const { data } = await axios.post(
 				`${process.env.NEXT_PUBLIC_URL}/api/openai`,
 				{
-					title: userInputs.title,
-					hashTag: userInputs.tag,
 					description: userInputs.description,
 				},
 				{
@@ -72,9 +70,6 @@ export const InputPanel = () => {
 			const { data } = await axios.post(
 				`${process.env.NEXT_PUBLIC_URL}/api/sharepost`,
 				{
-					author: "toyman",
-					authorImage:
-						"https://cdn.britannica.com/84/200584-050-7EC3F3F6/Jim-Carrey-2012.jpg",
 					title: userInputCache.title,
 					imageUrl: imageUrl,
 					tag: userInputCache.tag,
