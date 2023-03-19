@@ -32,7 +32,6 @@ const Share = async () => {
 	// 	},
 	// ];
 
-	console.log(posts);
 	return (
 		<main className="max-w-5xl mx-auto">
 			{/*  */}

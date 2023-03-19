@@ -1,5 +1,6 @@
 import Image from "next/image";
 import logo from "../public/assets/logo.png";
+import Link from "next/link";
 
 export const Header = () => {
 	return (
@@ -16,9 +17,17 @@ export const Header = () => {
 					<h1 className="font-bold text-2xl">DALL-E</h1>
 				</div>
 				{/* Tag Line */}
-				<h1 className="text-2xl tracking-wider uppercase font-bold hidden lg:block">
-					Bringing Your Imagination to Life with AI Images
-				</h1>
+				<div className="flex flex-col items-center ">
+					<div className="space-x-3 underline text-lg">
+						<Link href="/">Home</Link>
+						<Link href="/share">Community</Link>
+					</div>
+					<p className="text-gray-500 text-sm hidden lg:block mt-2">
+						&quot; I tried drawing a perfect circle, but it ended up
+						looking like a potato, so I decided to let the AI do the
+						artwork instead. &quot;
+					</p>
+				</div>
 
 				{/* button */}
 				<button className="btn">Sign Up</button>

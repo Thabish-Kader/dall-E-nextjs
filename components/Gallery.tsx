@@ -1,6 +1,8 @@
 import { Post } from "@prisma/client";
+import FileSaver from "file-saver";
 import Image from "next/image";
 import React, { FC } from "react";
+import { Button } from "./Button";
 
 const CommunityPost: FC<Post> = ({
 	title,
@@ -40,6 +42,7 @@ const CommunityPost: FC<Post> = ({
 				quo saepe aut laboriosam, veritatis officia. Neque doloribus
 				nostrum aliquam error eos perspiciatis!
 			</p>
+			<Button imageUrl={imageUrl} />
 		</article>
 	);
 };
