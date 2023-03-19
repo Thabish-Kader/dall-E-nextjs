@@ -16,10 +16,10 @@ export async function POST(request: Request) {
 	const { title, hashtag, description } = await request.json();
 
 	// const openAiResponse = await openai.createImage({
-	//     prompt: description,
-	//     n: 1,
-	//     size: "1024x1024"
-	// })
+	// 	prompt: description,
+	// 	n: 1,
+	// 	size: "512x512",
+	// });
 
 	// const imageUrl = openAiResponse.data.data[0].url
 

@@ -4,7 +4,7 @@ const nextConfig = {
 		appDir: true,
 	},
 	images: {
-		domains: ["miro.medium.com"],
+		domains: ["miro.medium.com", "images.nightcafe.studio"],
 	},
 };
 

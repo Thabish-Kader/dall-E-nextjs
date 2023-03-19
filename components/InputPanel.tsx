@@ -10,7 +10,9 @@ export const InputPanel = () => {
 		hashTag: "",
 		description: "",
 	});
-	const [imageUrl, setImageUrl] = useState("");
+	const [imageUrl, setImageUrl] = useState(
+		"https://images.nightcafe.studio/jobs/nuha3SGmXAZQKkZt6QwJ/nuha3SGmXAZQKkZt6QwJ.jpg?tr=w-1600,c-at_max"
+	);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

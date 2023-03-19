@@ -2,32 +2,37 @@ import React, { FC } from "react";
 import Image from "next/image";
 import preview from "../public/assets/defImage.png";
 import { Loader } from "./Loader";
+import FileSaver from "file-saver";
+
 export const ImagePreview: FC<ImagePreviewProps> = ({
 	imageUrl,
 	isLoading,
 }) => {
+	const handleDownloadImage = () => {
+		FileSaver.saveAs(imageUrl, imageUrl);
+	};
+
 	return (
 		<div className="mt-4">
 			<div className="relative w-full flex items-center justify-center">
 				{imageUrl === "" ? (
-					<>
+					<div className="relative h-[512px] w-[512px]">
 						<Image
-							src="https://miro.medium.com/v2/resize:fit:1024/0*vLXNKuhovez0FFj2.png"
+							src={preview}
 							alt=""
-							// TODO: Change thist to taileind
-							height={500}
-							width={1024}
-							className="h-[500px] w-[1024px] object-contain "
+							fill
+							className=" object-contain"
 						/>
-					</>
+					</div>
 				) : (
-					<>
+					<div className="relative h-[512px] w-[512px]">
 						<Image
 							src={imageUrl}
 							alt=""
-							className="h-[500px] w-[1024px] object-contain "
+							fill
+							className=" object-contain "
 						/>
-					</>
+					</div>
 				)}
 				{isLoading && (
 					<div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -35,6 +40,23 @@ export const ImagePreview: FC<ImagePreviewProps> = ({
 					</div>
 				)}
 			</div>
+			{imageUrl !== "" && (
+				<div className="flex gap-2 mt-2">
+					<button
+						className="btn flex-1  disabled:cursor-not-allowed"
+						disabled={imageUrl === ""}
+					>
+						Share
+					</button>
+					<button
+						className="btn flex-1 disabled:cursor-not-allowed"
+						disabled={imageUrl === ""}
+						onClick={handleDownloadImage}
+					>
+						Download
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };
