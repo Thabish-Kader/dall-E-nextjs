@@ -11,6 +11,15 @@ const nextConfig = {
 			},
 		],
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/api/:path*",
+				destination:
+					"https://dall-e-nextjs-lzd4tczud-thabish-kader.vercel.app/share",
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;
