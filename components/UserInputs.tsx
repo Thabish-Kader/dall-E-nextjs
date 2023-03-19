@@ -25,11 +25,11 @@ export const UserInputs: FC<userInputsProps> = ({
 					type="text"
 					className="input"
 					placeholder="#AI #OPENAI "
-					value={userInputs.hashTag}
+					value={userInputs.tag}
 					onChange={(e) =>
 						setUserInputs({
 							...userInputs,
-							hashTag: e.target.value,
+							tag: e.target.value,
 						})
 					}
 				/>

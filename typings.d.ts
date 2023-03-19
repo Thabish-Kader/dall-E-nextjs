@@ -1,6 +1,6 @@
 type TUserInput = {
 	title: string;
-	hashTag: string;
+	tag: string;
 	description: string;
 };
 

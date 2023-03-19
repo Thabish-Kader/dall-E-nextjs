@@ -4,23 +4,30 @@ import React, { useState } from "react";
 import { UserInputs } from "./UserInputs";
 import { ImagePreview } from "./ImagePreview";
 import FileSaver from "file-saver";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export const InputPanel = () => {
+	const router = useRouter();
 	const [userInputs, setUserInputs] = useState<TUserInput>({
 		title: "",
-		hashTag: "",
+		tag: "",
 		description: "",
 	});
-	const [imageUrl, setImageUrl] = useState(
-		"https://images.nightcafe.studio/jobs/nuha3SGmXAZQKkZt6QwJ/nuha3SGmXAZQKkZt6QwJ.jpg?tr=w-1600,c-at_max"
-	);
+	const [userInputCache, setuserInputCache] = useState({
+		title: "",
+		tag: "",
+		description: "",
+	});
+	const [imageUrl, setImageUrl] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+
 		if (
 			userInputs.title === "" ||
-			userInputs.hashTag === "" ||
+			userInputs.tag === "" ||
 			userInputs.description === ""
 		)
 			return alert("Enter all inputs");
@@ -30,14 +37,14 @@ export const InputPanel = () => {
 				`${process.env.NEXT_PUBLIC_URL}/api/openai`,
 				{
 					title: userInputs.title,
-					hashTag: userInputs.hashTag,
+					hashTag: userInputs.tag,
 					description: userInputs.description,
 				},
 				{
 					headers: { "Content-Type": "application/json" },
 				}
 			);
-			setImageUrl(data);
+			setImageUrl(data.imageUrl);
 		} catch (error) {
 			let message = "Unkown error";
 			if (error instanceof Error) message = error.message;
@@ -45,9 +52,12 @@ export const InputPanel = () => {
 		} finally {
 			setIsLoading(false);
 		}
+
+		// store the user inputs before clearing the states
+		setuserInputCache({ ...userInputs });
 		setUserInputs({
 			title: "",
-			hashTag: "",
+			tag: "",
 			description: "",
 		});
 	};
@@ -56,7 +66,29 @@ export const InputPanel = () => {
 		FileSaver.saveAs(imageUrl, imageUrl);
 	};
 
-	const handleShareImage = () => {};
+	const handleShareImage = async () => {
+		setIsLoading(true);
+		try {
+			const { data } = await axios.post(
+				`${process.env.NEXT_PUBLIC_URL}/api/sharepost`,
+				{
+					author: "toyman",
+					authorImage:
+						"https://cdn.britannica.com/84/200584-050-7EC3F3F6/Jim-Carrey-2012.jpg",
+					title: userInputCache.title,
+					imageUrl: imageUrl,
+					tag: userInputCache.tag,
+				}
+			);
+		} catch (error) {
+			let message = "Unkown error";
+			if (error instanceof Error) message = error.message;
+			alert(message);
+		} finally {
+			setIsLoading(false);
+		}
+		router.push("/share");
+	};
 
 	return (
 		<div className="mt-40 ">
@@ -76,7 +108,7 @@ export const InputPanel = () => {
 						disabled={imageUrl === ""}
 						onClick={handleShareImage}
 					>
-						Share
+						{isLoading ? "Sharing..." : "Share"}
 					</button>
 					<button
 						className="btn flex-1 disabled:cursor-not-allowed"

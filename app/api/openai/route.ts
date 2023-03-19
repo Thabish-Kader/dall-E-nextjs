@@ -27,7 +27,7 @@ export async function POST(request: Request) {
 	return NextResponse.json(
 		{
 			imageUrl:
-				"https://miro.medium.com/v2/resize:fit:1024/0*vLXNKuhovez0FFj2.png",
+				"https://static.fotor.com/app/features/img/aiart/Cyberpunk/Cyberpunk%20female%20soldier%20generated%20by%20Fotor's%20AI%20art%20maker.png",
 		},
 		{ status: 200 }
 	);

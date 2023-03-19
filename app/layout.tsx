@@ -6,7 +6,7 @@ export const metadata = {
 	description: "DALL-E Clone built with Next js, prisma, tailwind css ",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;

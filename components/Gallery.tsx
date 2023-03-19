@@ -36,12 +36,7 @@ const CommunityPost: FC<Post> = ({
 				</div>
 				<p>{author}</p>
 			</div>
-			<p className="text-yellow-500 mt-2">
-				# Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Repellat error vero cumque, sed tempora suscipit facilis. Dolore
-				quo saepe aut laboriosam, veritatis officia. Neque doloribus
-				nostrum aliquam error eos perspiciatis!
-			</p>
+			<p className="text-yellow-500 mt-2">{tag}</p>
 			<Button imageUrl={imageUrl} />
 		</article>
 	);

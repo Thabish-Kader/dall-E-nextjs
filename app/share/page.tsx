@@ -1,40 +1,21 @@
 import { Gallery } from "@/components/Gallery";
+import { prisma } from "@/prisma/prisma";
 
 async function getPosts() {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`, {
-		next: { revalidate: 120 },
-	});
+	// const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/openai`);
+	// if (!res.ok) {
+	// 	throw new Error("Failed to fetch data");
+	// }
+	const posts = await prisma.post.findMany();
 
-	if (!res.ok) {
-		throw new Error("Failed to fetch data");
-	}
-
-	return res.json();
+	return posts;
 }
 
 const Share = async () => {
-	const { posts } = await getPosts();
-	// DUMMY DATA
-	// const posts = [
-	// 	{
-	// 		postId: "1",
-	// 		title: "night",
-	// 		imageUrl:
-	// 			"https://images.nightcafe.studio/jobs/nuha3SGmXAZQKkZt6QwJ/nuha3SGmXAZQKkZt6QwJ.jpg?tr=w-1600,c-at_max",
-	// 		tags: ["#night", "#ai"],
-	// 	},
-	// 	{
-	// 		postId: "2",
-	// 		title: "greenLantern",
-	// 		imageUrl:
-	// 			"https://davidwaltonfiction.files.wordpress.com/2022/10/2979412993_young_handsome_asian_man_dinosaur_bones_in_green_smoke__head_and_shoulders_portrait__8k_resolution_concept_art_portrait_by_greg_rutkowski__artgerm__wlop__alphonse_mucha_dynami.png",
-	// 		tags: ["#green", "#lantern"],
-	// 	},
-	// ];
+	const posts = await getPosts();
 
 	return (
 		<main className="max-w-5xl mx-auto">
-			{/*  */}
 			<Gallery posts={posts} />
 		</main>
 	);
