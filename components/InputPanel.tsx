@@ -5,7 +5,6 @@ import { UserInputs } from "./UserInputs";
 import { ImagePreview } from "./ImagePreview";
 import FileSaver from "file-saver";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 
 export const InputPanel = () => {
 	const router = useRouter();
