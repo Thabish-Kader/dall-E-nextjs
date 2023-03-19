@@ -11,19 +11,17 @@ datasource db {
 }
 
 model User {
-  userId        String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  post          Post[]
-  postId        String
+  userId    String  @id @default(cuid())
+  name      String?
+  email     String? @unique
+  userImage String?
+  post      Post[]
 }
 
 model Post {
-  postId String   @id
-  user   User     @relation(references: [userId], fields: [postId])
-  title  String
-  name   String
-  tags   String[]
+  postId   String   @id
+  user     User     @relation(references: [userId], fields: [postId])
+  title    String
+  imageUrl String
+  tags     String[]
 }

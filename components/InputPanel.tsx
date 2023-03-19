@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { UserInputs } from "./UserInputs";
 import { ImagePreview } from "./ImagePreview";
+import FileSaver from "file-saver";
 
 export const InputPanel = () => {
 	const [userInputs, setUserInputs] = useState<TUserInput>({
@@ -51,6 +52,12 @@ export const InputPanel = () => {
 		});
 	};
 
+	const handleDownloadImage = () => {
+		FileSaver.saveAs(imageUrl, imageUrl);
+	};
+
+	const handleShareImage = () => {};
+
 	return (
 		<div className="mt-40 ">
 			<UserInputs
@@ -61,6 +68,25 @@ export const InputPanel = () => {
 			/>
 
 			<ImagePreview imageUrl={imageUrl} isLoading={isLoading} />
+
+			{imageUrl !== "" && (
+				<div className="flex gap-2 mt-2">
+					<button
+						className="btn flex-1  disabled:cursor-not-allowed"
+						disabled={imageUrl === ""}
+						onClick={handleShareImage}
+					>
+						Share
+					</button>
+					<button
+						className="btn flex-1 disabled:cursor-not-allowed"
+						disabled={imageUrl === ""}
+						onClick={handleDownloadImage}
+					>
+						Download
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };
