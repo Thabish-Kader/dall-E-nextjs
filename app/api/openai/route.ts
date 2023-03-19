@@ -1,3 +1,4 @@
+import { prisma } from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 import { Configuration, OpenAIApi } from "openai";
 
@@ -7,9 +8,9 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export async function GET(request: Request) {
-	// const { title, description, hashtag } = request.body;
+	const posts = await prisma.post.findMany();
 
-	return NextResponse.json({ title: "this is a get request" });
+	return NextResponse.json({ posts }, { status: 200 });
 }
 
 export async function POST(request: Request) {

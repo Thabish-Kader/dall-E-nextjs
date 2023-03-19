@@ -15,3 +15,7 @@ type userInputsProps = {
 	setUserInputs: React.Dispatch<React.SetStateAction<TUserInput>>;
 	isLoading: boolean;
 };
+
+type GalleryProps = {
+	posts: Post[];
+};

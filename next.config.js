@@ -4,7 +4,12 @@ const nextConfig = {
 		appDir: true,
 	},
 	images: {
-		domains: ["miro.medium.com", "images.nightcafe.studio"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "**",
+			},
+		],
 	},
 };
 
