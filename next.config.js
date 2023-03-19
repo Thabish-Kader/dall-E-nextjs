@@ -11,12 +11,16 @@ const nextConfig = {
 			},
 		],
 	},
-	async rewrites() {
+	async headers() {
 		return [
 			{
-				source: "/api/:path*",
-				destination:
-					"https://dall-e-nextjs-lzd4tczud-thabish-kader.vercel.app/share",
+				source: "/_next/:path*",
+				headers: [
+					{
+						key: "Access-Control-Allow-Origin",
+						value: "*",
+					},
+				],
 			},
 		];
 	},
