@@ -6,7 +6,7 @@ async function getPosts() {
 	if (!res.ok) {
 		throw new Error("Failed to fetch data");
 	}
-	const posts = res.json();
+	const posts = await res.json();
 	// const posts = await prisma.post.findMany();
 
 	return posts;
@@ -14,7 +14,7 @@ async function getPosts() {
 
 const Share = async () => {
 	const { posts } = await getPosts();
-
+	console.log(posts);
 	return (
 		<main className="max-w-5xl mx-auto">
 			<Gallery posts={posts} />
