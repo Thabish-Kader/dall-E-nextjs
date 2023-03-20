@@ -33,7 +33,7 @@ export const InputPanel = () => {
 		setIsLoading(true);
 		try {
 			const { data } = await axios.post(
-				`${process.env.NEXT_PUBLIC_URL}/api/openai`,
+				`/api/openai`,
 				{
 					description: userInputs.description,
 				},
@@ -66,14 +66,11 @@ export const InputPanel = () => {
 	const handleShareImage = async () => {
 		setIsLoading(true);
 		try {
-			const { data } = await axios.post(
-				`${process.env.NEXT_PUBLIC_URL}/api/sharepost`,
-				{
-					title: userInputCache.title,
-					imageUrl: imageUrl,
-					tag: userInputCache.tag,
-				}
-			);
+			const { data } = await axios.post(`/api/sharepost`, {
+				title: userInputCache.title,
+				imageUrl: imageUrl,
+				tag: userInputCache.tag,
+			});
 		} catch (error) {
 			let message = "Unkown error";
 			if (error instanceof Error) message = error.message;
