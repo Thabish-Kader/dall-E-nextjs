@@ -23,11 +23,9 @@
 
 <img width="1680" alt="Screenshot 2023-03-20 at 1 53 52 PM" src="https://user-images.githubusercontent.com/76642519/226534984-c7ace8ab-b944-45ae-b64d-0655120f7a00.png">
 
-
 <img width="1650" alt="Screenshot 2023-03-20 at 1 49 30 PM" src="https://user-images.githubusercontent.com/76642519/226534971-c48a583b-d933-4ba6-a572-4ecc8b610206.png">
 
-
-
+This project was built to learn NExt js 13.2 (route handlers and SSR). It uses the openAi api to make request to openAi and generate images. It was a very fun project to create especially while makeing very obscure request to openAi jsut to see what images pop up (like marcus arelius drinking coffee with a monkey :joy: )
 
 ### Resources
 
