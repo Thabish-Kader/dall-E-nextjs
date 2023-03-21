@@ -2,10 +2,6 @@
 
 ## Next JS 13.2, OpenAi, Prisma, Supabase
 
-This project was built to learn NExt js 13.2 (route handlers and SSR). It uses the openAi api to make request to openAi and generate images. It was a very fun project to create especially while makeing very obscure request to openAi jsut to see what images pop up (like marcus arelius drinking coffee with a monkey :joy: )
-
-Note: If you go to the deployed url to generate the image it will give a network error as i have revoked the api key from openai because i didn't want to experience artificial bankruptcy! :joy: )
-
 <img align="left" alt="NextJS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
 
 <img align="left" alt="OpenAi" width="30px" style="padding-right:10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png" />
@@ -20,6 +16,10 @@ Note: If you go to the deployed url to generate the image it will give a network
 
 <br/>
 <br/>
+
+This project was built to learn NExt js 13.2 (route handlers and SSR). It uses the openAi api to make request to openAi and generate images. It was a very fun project to create especially while makeing very obscure request to openAi jsut to see what images pop up (like marcus arelius drinking coffee with a monkey :joy: )
+
+Note: If you go to the deployed url to generate the image it will give a network error as i have revoked the api key from openai because i didn't want to experience artificial bankruptcy! :joy: )
 
 ### ScreenShots
 
