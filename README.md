@@ -21,6 +21,9 @@ This project was built to learn NExt js 13.2 (route handlers and SSR). It uses t
 
 Note: If you go to the deployed url to generate the image it will give a network error as i have revoked the api key from openai because i didn't want to experience artificial bankruptcy! :joy: )
 
+## YouTube
+[![Build and deploy DALL-E Clone : Next JS 13.2, OpenAi, Prisma, Supabase, Tailwind CSS](https://ytcards.demolab.com/?id=2mXr1TAu06U&title=Build+and+deploy+DALL-E+Clone+%3A+Next+JS+13.2%2C+OpenAi%2C+Prisma%2C+Supabase%2C+Tailwind+CSS&lang=en&timestamp=1679601602&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&width=250 "Build and deploy DALL-E Clone : Next JS 13.2, OpenAi, Prisma, Supabase, Tailwind CSS")](https://www.youtube.com/watch?v=2mXr1TAu06U)
+
 ### ScreenShots
 
 <img width="1664" alt="Screenshot 2023-03-20 at 1 49 00 PM" src="https://user-images.githubusercontent.com/76642519/226534960-a2ad2b84-0d22-4b16-ad5f-347b5257dd77.png">
